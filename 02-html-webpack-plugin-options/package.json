@@ -4,6 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.0",
+    "babel-preset-env": "^1.5.2",
     "css-loader": "^0.28.4",
     "html-webpack-plugin": "^2.29.0",
     "rimraf": "^2.6.1",
@@ -13,6 +16,7 @@
   "scripts": {
     "clean-dist": "rimraf dist && mkdir dist",
     "prebuild": "npm run clean-dist",
-    "build": "webpack"
+    "build": "webpack",
+    "build:prod": "webpack -p"
   }
 }
