@@ -14,7 +14,7 @@
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0"
   },
-  "scripts": {
+    "scripts": {
     "start:dev": "webpack-dev-server",
     "clean-dist": "rimraf dist && mkdir dist",
     "prebuild": "npm run clean-dist",

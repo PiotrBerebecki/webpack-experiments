@@ -1,10 +1,11 @@
 const path = require('path');
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: path.join(__dirname, 'src', 'app.js'),
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
   },
   module: {
@@ -15,14 +16,13 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-        },
+        exclude: /node-modules/,
+        use: [{ loader: 'babel-loader' }],
       },
     ],
   },
   plugins: [
+    new webpack.optimize.UglifyJsPlugin({}),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       title: 'Webpack experiment 02',
