@@ -29,4 +29,7 @@ module.exports = {
       description: 'Webpack tutorial',
     }),
   ],
+  devServer: {
+    port: 3000,
+  },
 };
