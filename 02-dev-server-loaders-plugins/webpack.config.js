@@ -22,10 +22,11 @@ module.exports = {
     ],
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({}),
+    // This is already used if using `webpack -p`
+    // new webpack.optimize.UglifyJsPlugin({}),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
-      title: 'Webpack experiment 02',
+      title: 'Webpack experiments',
       description: 'Webpack tutorial',
     }),
   ],

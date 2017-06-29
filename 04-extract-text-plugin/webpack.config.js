@@ -1,6 +1,8 @@
 const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const Visualizer = require('webpack-visualizer-plugin');
 
 module.exports = {
   entry: path.join(__dirname, 'src', 'app.js'),
@@ -12,7 +14,10 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader'],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader'],
+        }),
       },
       {
         test: /\.js$/,
@@ -22,13 +27,17 @@ module.exports = {
     ],
   },
   plugins: [
-    // This is already used if using `webpack -p`
-    // new webpack.optimize.UglifyJsPlugin({}),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       title: 'Webpack experiments',
       description: 'Webpack tutorial',
     }),
+    new ExtractTextPlugin({
+      filename: 'main.css',
+    }),
+    new Visualizer(),
+    // This is already used if using `webpack -p`
+    // new webpack.optimize.UglifyJsPlugin({}),
   ],
   devServer: {
     port: 3000,
