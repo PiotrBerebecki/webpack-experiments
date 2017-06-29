@@ -1,0 +1,25 @@
+{
+  "name": "02-static",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.0",
+    "babel-preset-env": "^1.5.2",
+    "css-loader": "^0.28.4",
+    "html-webpack-plugin": "^2.29.0",
+    "node-sass": "^4.5.3",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.18.2",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  },
+  "scripts": {
+    "start:dev": "webpack-dev-server",
+    "clean-dist": "rimraf dist && mkdir dist",
+    "prebuild": "npm run clean-dist",
+    "build:prod": "webpack -p"
+  }
+}
